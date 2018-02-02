@@ -1,0 +1,29 @@
+version: '2'
+
+networks: 
+
+  default:
+    driver: bridge
+
+volumes:
+
+  postgis-data:
+    driver: local
+
+services:
+
+  postgis:
+    image: mdillon/postgis
+    restart: always
+    container_name: postgis
+    hostname: postgis
+    environment:
+      #PGDATA: /var/lib/postgresql/data
+      #POSTGRES_USER: postgres
+      #POSTGRES_DB: postgres
+      #POSTGRES_INITDB_ARGS: "--data-checksums"
+      #POSTGRES_INITDB_XLOGDIR: ...
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - postgis-data:/var/lib/postgresql/data
+
