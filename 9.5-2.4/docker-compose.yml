@@ -15,7 +15,7 @@ services:
   postgis:
     image: mdillon/postgis
     restart: always
-    container-name: postgis
+    container_name: postgis
     hostname: postgis
     environment:
       #PGDATA: /var/lib/postgresql/data
@@ -30,7 +30,7 @@ services:
   pgadmin:
     image: dpage/pgadmin4
     restart: always
-    container-name: pgadmin
+    container_name: pgadmin
     hostname: pgadmin
     environment:
       PGADMIN_DEFAULT_EMAIL: ${PGADMIN_EMAIL}
